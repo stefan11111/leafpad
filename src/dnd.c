@@ -100,7 +100,7 @@ static void dnd_drag_data_recieved_handler(GtkWidget *widget,
 DV(g_print("DND start!\n"));
 	
 #if GTK_CHECK_VERSION(2, 10, 0)
-	if (g_strcasecmp(gdk_atom_name(context->targets->data),
+	if (g_ascii_strcasecmp(gdk_atom_name(context->targets->data),
 	    "GTK_TEXT_BUFFER_CONTENTS") != 0) {
 #else
 	if (info != TARGET_SELF) {

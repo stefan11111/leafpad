@@ -1,0 +1,155 @@
+diff --git a/src/dnd.c b/src/dnd.c
+index 28f3178..d1aab27 100644
+--- a/src/dnd.c
++++ b/src/dnd.c
+@@ -100,7 +100,7 @@ static void dnd_drag_data_recieved_handler(GtkWidget *widget,
+ DV(g_print("DND start!\n"));
+ 	
+ #if GTK_CHECK_VERSION(2, 10, 0)
+-	if (g_strcasecmp(gdk_atom_name(context->targets->data),
++	if (g_ascii_strcasecmp(gdk_atom_name(context->targets->data),
+ 	    "GTK_TEXT_BUFFER_CONTENTS") != 0) {
+ #else
+ 	if (info != TARGET_SELF) {
+diff --git a/src/gtksourceiter.c b/src/gtksourceiter.c
+index 9016328..c3d518f 100644
+--- a/src/gtksourceiter.c
++++ b/src/gtksourceiter.c
+@@ -39,15 +39,12 @@
+ static const gchar *
+ pointer_from_offset_skipping_decomp (const gchar *str, gint offset)
+ {
+-	gsize decomp_len;
+-	gunichar *decomp;
+-	const gchar *p;
+-
+-	p = str;
++	const gchar *p = str;
+ 	while (offset > 0)
+ 	{
+-		decomp = g_unicode_canonical_decomposition (g_utf8_get_char (p), &decomp_len);
+-		g_free (decomp);
++		gunichar decomp;
++		gsize decomp_len = g_unichar_fully_decompose (g_utf8_get_char (p), FALSE, &decomp,
++                                                        G_UNICHAR_MAX_DECOMPOSITION_LENGTH);
+ 		p = g_utf8_next_char (p);
+ 		offset -= decomp_len;
+ 	}
+@@ -233,12 +230,12 @@ forward_chars_with_skipping (GtkTextIter *iter,
+ 			   offsets coming from canonical decompositions of
+ 			   UTF8 characters (e.g. accented characters) which 
+ 			   g_utf8_normalize() performs */
+-			gunichar *decomp;
+-			gsize decomp_len;
+-			decomp = g_unicode_canonical_decomposition (
+-				gtk_text_iter_get_char (iter), &decomp_len);
++			gunichar decomp;
++			gsize decomp_len = g_unichar_fully_decompose (gtk_text_iter_get_char (iter),
++                                                                      FALSE,
++                                                                      &decomp,
++                                                                      G_UNICHAR_MAX_DECOMPOSITION_LENGTH);
+ 			i -= (decomp_len - 1);
+-			g_free (decomp);
+ 		}
+ 
+ 		gtk_text_iter_forward_char (iter);
+diff --git a/src/linenum.c b/src/linenum.c
+index da41cff..2390a89 100644
+--- a/src/linenum.c
++++ b/src/linenum.c
+@@ -55,8 +55,7 @@ get_lines (GtkTextView  *text_view,
+ {
+ 	GtkTextIter iter;
+ 	gint count;
+-	gint size;
+-		gint last_line_num;
++	gint last_line_num;
+ 	
+ 	g_array_set_size (buffer_coords, 0);
+ 	g_array_set_size (numbers, 0);
+@@ -68,7 +67,6 @@ get_lines (GtkTextView  *text_view,
+ 	 * Stop when we pass y2
+ 	 */
+ 	count = 0;
+-	size = 0;
+ 	
+ 	while (!gtk_text_iter_is_end (&iter))
+ 	{
+diff --git a/src/main.c b/src/main.c
+index 2fab9c2..0560d15 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -59,18 +59,18 @@ static void load_config_file(Conf *conf)
+ 	if (fgets(buf, sizeof(buf), fp)) {
+ 		num = g_strsplit(buf, "." , 3);
+ 		if ((atoi(num[1]) >= 8) && (atoi(num[2]) >= 0)) {
+-			fgets(buf, sizeof(buf), fp);
++			(void)!fgets(buf, sizeof(buf), fp);
+ 			conf->width = atoi(buf);
+-			fgets(buf, sizeof(buf), fp);
++			(void)!fgets(buf, sizeof(buf), fp);
+ 			conf->height = atoi(buf);
+-			fgets(buf, sizeof(buf), fp);
++			(void)!fgets(buf, sizeof(buf), fp);
+ 			g_free(conf->fontname);
+ 			conf->fontname = g_strdup(buf);
+-			fgets(buf, sizeof(buf), fp);
++			(void)!fgets(buf, sizeof(buf), fp);
+ 			conf->wordwrap = atoi(buf);
+-			fgets(buf, sizeof(buf), fp);
++			(void)!fgets(buf, sizeof(buf), fp);
+ 			conf->linenumbers = atoi(buf);
+-			fgets(buf, sizeof(buf), fp);
++			(void)!fgets(buf, sizeof(buf), fp);
+ 			conf->autoindent = atoi(buf);
+ 		}
+ 		g_strfreev(num);
+@@ -255,12 +255,12 @@ static void parse_args(gint argc, gchar **argv, FileInfo *fi)
+ #endif
+ 	
+ 	if (fi->charset 
+-		&& (g_strcasecmp(fi->charset, get_default_charset()) != 0)
+-		&& (g_strcasecmp(fi->charset, "UTF-8") != 0)) {
++		&& (g_ascii_strcasecmp(fi->charset, get_default_charset()) != 0)
++		&& (g_ascii_strcasecmp(fi->charset, "UTF-8") != 0)) {
+ 		encarray = get_encoding_items(get_encoding_code());
+ 		for (i = 0; i < ENCODING_MAX_ITEM_NUM; i++)
+ 			if (encarray->item[i])
+-				if (g_strcasecmp(fi->charset, encarray->item[i]) == 0)
++				if (g_ascii_strcasecmp(fi->charset, encarray->item[i]) == 0)
+ 					break;
+ 		if (i == ENCODING_MAX_ITEM_NUM)
+ 			fi->charset_flag = TRUE;
+diff --git a/src/menu.c b/src/menu.c
+index ba90bf3..7bdd4ea 100644
+--- a/src/menu.c
++++ b/src/menu.c
+@@ -146,15 +146,12 @@ GtkWidget *create_menu_bar(GtkWidget *window)
+ {
+ 	GtkAccelGroup *accel_group;
+ 	GtkItemFactory *ifactory;
+-	gboolean flag_emacs = FALSE;
+ 	
+ 	gchar *key_theme = NULL;
+ 	GtkSettings *settings = gtk_settings_get_default();
+ 	if (settings) {
+ 		g_object_get(settings, "gtk-key-theme-name", &key_theme, NULL);
+ 		if (key_theme) {
+-			if (!g_ascii_strcasecmp(key_theme, "Emacs"))
+-				flag_emacs = TRUE;
+ 			g_free(key_theme);
+ 		}
+ 	}
+diff --git a/src/selector.c b/src/selector.c
+index bbd3756..bbcb32c 100644
+--- a/src/selector.c
++++ b/src/selector.c
+@@ -273,7 +273,7 @@ static GtkWidget *create_charset_menu(FileInfo *selected_fi)
+ 	i = 0;
+ 	if (selected_fi->charset) {
+ 		do {
+-			if (g_strcasecmp(selected_fi->charset, ctable->charset[i]) == 0)
++			if (g_ascii_strcasecmp(selected_fi->charset, ctable->charset[i]) == 0)
+ 				break;
+ 			i++;
+ 		} while (i < ctable->num);

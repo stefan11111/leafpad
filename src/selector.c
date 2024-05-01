@@ -273,7 +273,7 @@ static GtkWidget *create_charset_menu(FileInfo *selected_fi)
 	i = 0;
 	if (selected_fi->charset) {
 		do {
-			if (g_strcasecmp(selected_fi->charset, ctable->charset[i]) == 0)
+			if (g_ascii_strcasecmp(selected_fi->charset, ctable->charset[i]) == 0)
 				break;
 			i++;
 		} while (i < ctable->num);

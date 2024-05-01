@@ -39,15 +39,12 @@
 static const gchar *
 pointer_from_offset_skipping_decomp (const gchar *str, gint offset)
 {
-	gsize decomp_len;
-	gunichar *decomp;
-	const gchar *p;
-
-	p = str;
+	const gchar *p = str;
 	while (offset > 0)
 	{
-		decomp = g_unicode_canonical_decomposition (g_utf8_get_char (p), &decomp_len);
-		g_free (decomp);
+		gunichar decomp;
+		gsize decomp_len = g_unichar_fully_decompose (g_utf8_get_char (p), FALSE, &decomp,
+                                                        G_UNICHAR_MAX_DECOMPOSITION_LENGTH);
 		p = g_utf8_next_char (p);
 		offset -= decomp_len;
 	}
@@ -233,12 +230,12 @@ forward_chars_with_skipping (GtkTextIter *iter,
 			   offsets coming from canonical decompositions of
 			   UTF8 characters (e.g. accented characters) which 
 			   g_utf8_normalize() performs */
-			gunichar *decomp;
-			gsize decomp_len;
-			decomp = g_unicode_canonical_decomposition (
-				gtk_text_iter_get_char (iter), &decomp_len);
+			gunichar decomp;
+			gsize decomp_len = g_unichar_fully_decompose (gtk_text_iter_get_char (iter),
+                                                                      FALSE,
+                                                                      &decomp,
+                                                                      G_UNICHAR_MAX_DECOMPOSITION_LENGTH);
 			i -= (decomp_len - 1);
-			g_free (decomp);
 		}
 
 		gtk_text_iter_forward_char (iter);

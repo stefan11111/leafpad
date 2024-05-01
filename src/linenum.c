@@ -55,8 +55,7 @@ get_lines (GtkTextView  *text_view,
 {
 	GtkTextIter iter;
 	gint count;
-	gint size;
-		gint last_line_num;
+	gint last_line_num;
 	
 	g_array_set_size (buffer_coords, 0);
 	g_array_set_size (numbers, 0);
@@ -68,7 +67,6 @@ get_lines (GtkTextView  *text_view,
 	 * Stop when we pass y2
 	 */
 	count = 0;
-	size = 0;
 	
 	while (!gtk_text_iter_is_end (&iter))
 	{

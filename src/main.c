@@ -59,18 +59,18 @@ static void load_config_file(Conf *conf)
 	if (fgets(buf, sizeof(buf), fp)) {
 		num = g_strsplit(buf, "." , 3);
 		if ((atoi(num[1]) >= 8) && (atoi(num[2]) >= 0)) {
-			fgets(buf, sizeof(buf), fp);
+			(void)!fgets(buf, sizeof(buf), fp);
 			conf->width = atoi(buf);
-			fgets(buf, sizeof(buf), fp);
+			(void)!fgets(buf, sizeof(buf), fp);
 			conf->height = atoi(buf);
-			fgets(buf, sizeof(buf), fp);
+			(void)!fgets(buf, sizeof(buf), fp);
 			g_free(conf->fontname);
 			conf->fontname = g_strdup(buf);
-			fgets(buf, sizeof(buf), fp);
+			(void)!fgets(buf, sizeof(buf), fp);
 			conf->wordwrap = atoi(buf);
-			fgets(buf, sizeof(buf), fp);
+			(void)!fgets(buf, sizeof(buf), fp);
 			conf->linenumbers = atoi(buf);
-			fgets(buf, sizeof(buf), fp);
+			(void)!fgets(buf, sizeof(buf), fp);
 			conf->autoindent = atoi(buf);
 		}
 		g_strfreev(num);
@@ -255,12 +255,12 @@ static void parse_args(gint argc, gchar **argv, FileInfo *fi)
 #endif
 	
 	if (fi->charset 
-		&& (g_strcasecmp(fi->charset, get_default_charset()) != 0)
-		&& (g_strcasecmp(fi->charset, "UTF-8") != 0)) {
+		&& (g_ascii_strcasecmp(fi->charset, get_default_charset()) != 0)
+		&& (g_ascii_strcasecmp(fi->charset, "UTF-8") != 0)) {
 		encarray = get_encoding_items(get_encoding_code());
 		for (i = 0; i < ENCODING_MAX_ITEM_NUM; i++)
 			if (encarray->item[i])
-				if (g_strcasecmp(fi->charset, encarray->item[i]) == 0)
+				if (g_ascii_strcasecmp(fi->charset, encarray->item[i]) == 0)
 					break;
 		if (i == ENCODING_MAX_ITEM_NUM)
 			fi->charset_flag = TRUE;

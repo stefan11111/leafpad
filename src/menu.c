@@ -146,15 +146,12 @@ GtkWidget *create_menu_bar(GtkWidget *window)
 {
 	GtkAccelGroup *accel_group;
 	GtkItemFactory *ifactory;
-	gboolean flag_emacs = FALSE;
 	
 	gchar *key_theme = NULL;
 	GtkSettings *settings = gtk_settings_get_default();
 	if (settings) {
 		g_object_get(settings, "gtk-key-theme-name", &key_theme, NULL);
 		if (key_theme) {
-			if (!g_ascii_strcasecmp(key_theme, "Emacs"))
-				flag_emacs = TRUE;
 			g_free(key_theme);
 		}
 	}
