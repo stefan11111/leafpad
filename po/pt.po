@@ -1,55 +1,53 @@
-# Leafpad Portuguese (Portugal) translation.
-# Copyright (C) 2018 Free Software Foundation, Inc.
-# This file is distributed under the same license as the leafpad package.
-# Pedro Albuquerque <palbuquerque73@gmail.com>, 2018.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Alan Kelon Oliveira de Moraes <alankelon@yahoo.com.br>, 2004.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: leafpad 0.8.16\n"
+"Project-Id-Version: Leafpad 0.7.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-03 21:17+0900\n"
-"PO-Revision-Date: 2018-10-04 10:14+0100\n"
-"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
-"Language-Team: Portuguese <translation-team-pt@lists.sourceforge.net>\n"
-"Language: pt\n"
+"POT-Creation-Date: 2009-10-28 02:41+0900\n"
+"PO-Revision-Date: 2004-12-28 19:56:59-0300\n"
+"Last-Translator: Alan Kelon Oliveira de Moraes <alankelon@yahoo.com.br>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\\n\n"
-"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../src/menu.c:31
 msgid "/_File"
-msgstr "/_Ficheiro"
+msgstr "/_Arquivo"
 
 #: ../src/menu.c:33
 msgid "/File/_New"
-msgstr "/Ficheiro/_Novo"
+msgstr "/_Arquivo/_Novo"
 
 #: ../src/menu.c:35
 msgid "/File/_Open..."
-msgstr "/Ficheiro/_Abrir..."
+msgstr "/_Arquivo/_Abrir"
 
 #: ../src/menu.c:37
 msgid "/File/_Save"
-msgstr "/Ficheiro/_Gravar"
+msgstr "/_Arquivo/_Salvar"
 
 #: ../src/menu.c:39
 msgid "/File/Save _As..."
-msgstr "/Ficheiro/Gravar _como..."
+msgstr "/_Arquivo/Salvar _Como"
 
 #: ../src/menu.c:45
+#, fuzzy
 msgid "/File/Print Pre_view"
-msgstr "/Ficheiro/Ante_ver impressão"
+msgstr "/_Arquivo/Sa_ir"
 
 #: ../src/menu.c:48
+#, fuzzy
 msgid "/File/_Print..."
-msgstr "/Ficheiro/Im_primir..."
+msgstr "/_Arquivo/Sa_ir"
 
 #: ../src/menu.c:55
 msgid "/File/_Quit"
-msgstr "/Ficheiro/_Sair"
+msgstr "/_Arquivo/Sa_ir"
 
 #: ../src/menu.c:57
 msgid "/_Edit"
@@ -57,31 +55,31 @@ msgstr "/_Editar"
 
 #: ../src/menu.c:59
 msgid "/Edit/_Undo"
-msgstr "/Editar/_Desfazer"
+msgstr "/_Editar/_Desfazer"
 
 #: ../src/menu.c:61
 msgid "/Edit/_Redo"
-msgstr "/Editar/_Refazer"
+msgstr "/_Editar/_Refazer"
 
 #: ../src/menu.c:65
 msgid "/Edit/Cu_t"
-msgstr "/Editar/Cor_tar"
+msgstr "/_Editar/R_ecortar"
 
 #: ../src/menu.c:67
 msgid "/Edit/_Copy"
-msgstr "/Editar/_Copiar"
+msgstr "/_Editar/_Copiar"
 
 #: ../src/menu.c:69
 msgid "/Edit/_Paste"
-msgstr "/Editar/Co_lar"
+msgstr "/_Editar/C_olar"
 
 #: ../src/menu.c:71
 msgid "/Edit/_Delete"
-msgstr "/Editar/_Eliminar"
+msgstr "/_Editar/_Apagar"
 
 #: ../src/menu.c:75
 msgid "/Edit/Select _All"
-msgstr "/Editar/Seleccion_ar tudo"
+msgstr "/_Editar/Selecionar _Tudo"
 
 #: ../src/menu.c:77
 msgid "/_Search"
@@ -89,23 +87,23 @@ msgstr "/_Procurar"
 
 #: ../src/menu.c:79
 msgid "/Search/_Find..."
-msgstr "/Procurar/_Localizar..."
+msgstr "/_Procurar/_Procurar..."
 
 #: ../src/menu.c:81
 msgid "/Search/Find _Next"
-msgstr "/Procurar/Localizar segui_nte"
+msgstr "/_Procurar/P_rocurar Próximo"
 
 #: ../src/menu.c:83
 msgid "/Search/Find _Previous"
-msgstr "/Procurar/Localizar _Anterior"
+msgstr "/_Procurar/Procurar _Anterior"
 
 #: ../src/menu.c:85
 msgid "/Search/_Replace..."
-msgstr "/Procurar/Substitui_r..."
+msgstr "/_Procurar/_Substituir..."
 
 #: ../src/menu.c:89
 msgid "/Search/_Jump To..."
-msgstr "/Procurar/_Ir para..."
+msgstr "/_Procurar/_Ir para..."
 
 #: ../src/menu.c:91
 msgid "/_Options"
@@ -113,49 +111,49 @@ msgstr "/_Opções"
 
 #: ../src/menu.c:93
 msgid "/Options/_Font..."
-msgstr "/Opções/_Letra..."
+msgstr "/_Opções/_Fonte"
 
 #: ../src/menu.c:95
 msgid "/Options/_Word Wrap"
-msgstr "/Opções/_Quebra de linha"
+msgstr "/_Opções/_Quebrar linha"
 
 #: ../src/menu.c:97
 msgid "/Options/_Line Numbers"
-msgstr "/Opções/Números de _linha"
+msgstr "/_Opções/_Número de linhas"
 
 #: ../src/menu.c:101
 msgid "/Options/_Auto Indent"
-msgstr "/Opções/_Auto-indentar"
+msgstr "/_Opções/_Auto Indentar"
 
 #: ../src/menu.c:103
 msgid "/_Help"
-msgstr "/A_juda"
+msgstr "_Ajuda"
 
 #: ../src/menu.c:105
 msgid "/Help/_About"
-msgstr "/Ajuda/_Acerca"
+msgstr "_Ajuda/_Sobre"
 
 #: ../src/callback.c:316
 msgid "GTK+ based simple text editor"
-msgstr "Editor de texto simples em GTK+"
+msgstr "Simples editor de texto feito em GTK+"
 
 #: ../src/callback.c:321
 msgid "translator-credits"
-msgstr "Pedro Albuquerque <palbuquerque73@gmail.com>"
+msgstr "Alan Kelon <alankelon@yahoo.com.br>"
 
 #: ../src/view.c:62
 #, c-format
 msgid "Save changes to '%s'?"
-msgstr "Gravar alterações em \"%s\"?"
+msgstr "Salvar modificações em '%s'"
 
 #: ../src/font.c:44
 msgid "Font"
-msgstr "Letra"
+msgstr "Fonte"
 
 #: ../src/selector.c:99
 #, c-format
 msgid "Current Locale (%s)"
-msgstr "Idioma actual (%s)"
+msgstr "Localização atual (%s)"
 
 #: ../src/selector.c:130
 msgid "Other Codeset"
@@ -163,14 +161,15 @@ msgstr "Outro conjunto de caracteres"
 
 #: ../src/selector.c:170
 msgid "Code_set:"
-msgstr "Conjunto de caractere_s:"
+msgstr "_Conjunto de caracteres"
 
 #: ../src/selector.c:192
 #, c-format
 msgid "'%s' is not supported"
-msgstr "\"%s\" não é suportado"
+msgstr "'%s' não é suportado"
 
 #: ../src/selector.c:253
+#, fuzzy
 msgid "Auto-Detect"
 msgstr "Auto-detectar"
 
@@ -180,16 +179,16 @@ msgstr "Abrir"
 
 #: ../src/selector.c:305
 msgid "Save As"
-msgstr "Gravar como"
+msgstr "Salvar Como"
 
 #: ../src/selector.c:329
 msgid "C_haracter Coding:"
-msgstr "Codi_ficação de caracteres: "
+msgstr "_Codificação de caracteres: "
 
 #: ../src/selector.c:400
 #, c-format
 msgid "'%s' already exists. Overwrite?"
-msgstr "\"%s\" já existe. Sobrescrever?"
+msgstr "'%s' já existe. Sobrescrever?"
 
 #: ../src/file.c:55
 msgid "Untitled"
@@ -198,19 +197,19 @@ msgstr "Sem título"
 #: ../src/file.c:212
 #, c-format
 msgid "Can't convert codeset to '%s'"
-msgstr "Impossível converter para \"%s\""
+msgstr "Não foi possível converter o conjuntos de caracteres para '%s'"
 
 #: ../src/file.c:225
 msgid "Can't open file to write"
-msgstr "Impossível abrir o ficheiro para escrita"
+msgstr "Não foi possível abrir o arquivo para escrita"
 
 #: ../src/file.c:230
 msgid "Can't write file"
-msgstr "Impossível escrever o ficheiro"
+msgstr "Não foi possível escrever o arquivo"
 
 #: ../src/search.c:140
 msgid "Search string not found"
-msgstr "Cadeia não encontrada"
+msgstr "Palavra(s) não encontrada"
 
 #: ../src/search.c:193
 msgid "Replace?"
@@ -219,7 +218,7 @@ msgstr "Substituir?"
 #: ../src/search.c:260
 #, c-format
 msgid "%d strings replaced"
-msgstr "%d cadeias substituídas"
+msgstr "%d palavra(s) substituídas"
 
 #: ../src/search.c:306
 msgid "Replace"
@@ -227,76 +226,83 @@ msgstr "Substituir"
 
 #: ../src/search.c:313
 msgid "Find"
-msgstr "Localizar"
+msgstr "Procurar"
 
 #: ../src/search.c:326
+#, fuzzy
 msgid "Fi_nd what:"
-msgstr "Procurar o _quê:"
+msgstr "_Procurar o que: "
 
-#: ../src/search.c:342
+#: ../src/search.c:345
+#, fuzzy
 msgid "Re_place with:"
-msgstr "Substituir _por: "
+msgstr "_Substituir com: "
 
-#: ../src/search.c:356
+#: ../src/search.c:359
 msgid "_Match case"
-msgstr "Co_mparar maiúsculas"
+msgstr "_Diferenciar maiúsculas e minúsculas"
 
-#: ../src/search.c:361
+#: ../src/search.c:364
 msgid "Replace _all at once"
-msgstr "Substituir tod_as"
+msgstr "Substituir _todas de uma vez"
 
-#: ../src/search.c:412
+#: ../src/search.c:415
 msgid "Jump To"
 msgstr "Ir para"
 
-#: ../src/search.c:418
+#: ../src/search.c:421
 msgid "_Jump"
 msgstr "_Ir"
 
-#: ../src/search.c:425
+#: ../src/search.c:428
+#, fuzzy
 msgid "_Line number:"
-msgstr "Nº da _linha: "
+msgstr "_Número da linha: "
 
 #: ../src/about.c:102
 msgid "Credits"
-msgstr "Créditos"
+msgstr ""
 
 #: ../src/about.c:137
 msgid "Written by"
-msgstr "Escrito por"
+msgstr ""
 
 #: ../src/about.c:140
 msgid "Documented by"
-msgstr "Documentado por"
+msgstr ""
 
 #: ../src/about.c:146
 msgid "Translated by"
-msgstr "Traduzido por"
+msgstr ""
 
 #: ../src/about.c:197
 msgid "C_redits"
-msgstr "C_réditos"
+msgstr ""
 
 #: ../src/about.c:199
 msgid "_Credits"
-msgstr "_Créditos"
+msgstr ""
 
 #: ../src/about.c:209
 #, c-format
 msgid "About %s"
-msgstr "Acerca de %s"
+msgstr "Sobre %s"
 
 #: ../src/gnomeprint.c:261
 msgid "Print"
-msgstr "Imprimir"
+msgstr ""
 
 #: ../src/gnomeprint.c:291
 msgid "Print Preview"
-msgstr "Antever impressão"
+msgstr ""
 
 #: ../data/leafpad.desktop.in.h:1
 msgid "Simple text editor"
-msgstr "Editor de texto simples"
+msgstr "Simples editor de texto"
+
+#, fuzzy
+#~ msgid "/_View"
+#~ msgstr "/_Arquivo"
 
 #, fuzzy
 #~ msgid "Can't convert codeset to current locale"

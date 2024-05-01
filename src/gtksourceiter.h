@@ -22,15 +22,15 @@
 #ifndef __GTK_SOURCE_ITER_H__
 #define __GTK_SOURCE_ITER_H__
 
-#include <gtk/gtktextiter.h>
+#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
 typedef enum
 {
-	GTK_SOURCE_SEARCH_VISIBLE_ONLY		 = 1 << 0,
-	GTK_SOURCE_SEARCH_TEXT_ONLY		 = 1 << 1,
-	GTK_SOURCE_SEARCH_CASE_INSENSITIVE	 = 1 << 2
+	GTK_SOURCE_SEARCH_VISIBLE_ONLY,
+	GTK_SOURCE_SEARCH_TEXT_ONLY,
+	GTK_SOURCE_SEARCH_CASE_INSENSITIVE
 	/* Possible future plans: SEARCH_REGEXP */
 } GtkSourceSearchFlags;
 

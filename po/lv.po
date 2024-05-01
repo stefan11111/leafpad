@@ -1,62 +1,59 @@
 # Latvain translation of leafpad.
 # Copyright (C) 2009 leafpad
 # This file is distributed under the same license as the leafpad package.
-#
 # Arvis Lācis <arvis.lacis@inbox.lv>, 2009.
-# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: leafpad-0.8.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-03 21:17+0900\n"
-"PO-Revision-Date: 2014-04-20 18:11+0300\n"
-"Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
+"POT-Creation-Date: 2009-10-28 02:41+0900\n"
+"PO-Revision-Date: 2009-07-30 12:44+0100\n"
+"Last-Translator: Rihards Priedītis <rprieditis@gmail.com>\n"
 "Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
-"Language: lv\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Latvian\n"
 "X-Poedit-Country: LATVIA\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
-"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
 
 #: ../src/menu.c:31
 msgid "/_File"
-msgstr "/_Datne"
+msgstr "/_Fails"
 
 #: ../src/menu.c:33
 msgid "/File/_New"
-msgstr "/Datne/Jau_ns"
+msgstr "/Fails/_Jauns"
 
 #: ../src/menu.c:35
 msgid "/File/_Open..."
-msgstr "/Datne/_Atvērt..."
+msgstr "/Fails/_Atvērt..."
 
 #: ../src/menu.c:37
 msgid "/File/_Save"
-msgstr "/Datne/_Saglabāt"
+msgstr "/Fails/_Saglabāt"
 
 #: ../src/menu.c:39
 msgid "/File/Save _As..."
-msgstr "/Datne/Saglabāt _kā..."
+msgstr "/Fails/Saglabāt _kā..."
 
 #: ../src/menu.c:45
 msgid "/File/Print Pre_view"
-msgstr "/Datne/Drukas priekšs_katījums"
+msgstr "/Fails/Drukas priekšs_katījums"
 
 #: ../src/menu.c:48
 msgid "/File/_Print..."
-msgstr "/Datne/_Drukāt..."
+msgstr "/Fails/_Drukāt..."
 
 #: ../src/menu.c:55
 msgid "/File/_Quit"
-msgstr "/Datne/_Iziet"
+msgstr "/Fails/_Iziet"
 
 #: ../src/menu.c:57
 msgid "/_Edit"
-msgstr "/R_ediģēt"
+msgstr "/_Rediģēt"
 
 #: ../src/menu.c:59
 msgid "/Edit/_Undo"
@@ -64,7 +61,7 @@ msgstr "/Rediģēt/At_saukt"
 
 #: ../src/menu.c:61
 msgid "/Edit/_Redo"
-msgstr "/Rediģēt/_Atatsaukt"
+msgstr "/Rediģēt/_Atjaunot"
 
 #: ../src/menu.c:65
 msgid "/Edit/Cu_t"
@@ -80,7 +77,7 @@ msgstr "/Rediģēt/Ie_līmēt"
 
 #: ../src/menu.c:71
 msgid "/Edit/_Delete"
-msgstr "/Rediģēt/_Dzēst"
+msgstr "/Rediģēt/_Izdzēst"
 
 #: ../src/menu.c:75
 msgid "/Edit/Select _All"
@@ -104,7 +101,7 @@ msgstr "/Meklēt/Atrast iep_riekšējo"
 
 #: ../src/menu.c:85
 msgid "/Search/_Replace..."
-msgstr "/Meklēt/Ai_zvietot..."
+msgstr "/Meklēt/Ai_zstāt..."
 
 #: ../src/menu.c:89
 msgid "/Search/_Jump To..."
@@ -112,23 +109,23 @@ msgstr "/Meklēt/_Pāriet uz..."
 
 #: ../src/menu.c:91
 msgid "/_Options"
-msgstr "/_Opcijas"
+msgstr "/_Uzstādījumi"
 
 #: ../src/menu.c:93
 msgid "/Options/_Font..."
-msgstr "/Opcijas/_Fonts..."
+msgstr "/Uzstādījumi/_Fonts..."
 
 #: ../src/menu.c:95
 msgid "/Options/_Word Wrap"
-msgstr "/Opcijas/_Vārdu aplaušana"
+msgstr "/Uzstādījumi/_Vārda aplaušana"
 
 #: ../src/menu.c:97
 msgid "/Options/_Line Numbers"
-msgstr "/Opcijas/_Rindu numuri"
+msgstr "/Uzstādījumi/_Rindu numuri"
 
 #: ../src/menu.c:101
 msgid "/Options/_Auto Indent"
-msgstr "/Opcijas/_Automātiskas atkāpes"
+msgstr "/Uzstādījumi/_Automātiska atkāpe"
 
 #: ../src/menu.c:103
 msgid "/_Help"
@@ -136,7 +133,7 @@ msgstr "/_Palīdzība"
 
 #: ../src/menu.c:105
 msgid "/Help/_About"
-msgstr "/Palīdzība/P_ar"
+msgstr "/Palīdzība/_Par"
 
 #: ../src/callback.c:316
 msgid "GTK+ based simple text editor"
@@ -144,14 +141,12 @@ msgstr "Uz GTK+ balstīts vienkāršā teksta redaktors"
 
 #: ../src/callback.c:321
 msgid "translator-credits"
-msgstr ""
-"Arvis Lācis <arvis.lacis@inbox.lv>, 2009\n"
-"Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
+msgstr "Arvis Lācis <arvis.lacis@inbox.lv>, 2009"
 
 #: ../src/view.c:62
 #, c-format
 msgid "Save changes to '%s'?"
-msgstr "Saglabāt izmaiņas “%s”?"
+msgstr "Saglabāt izmaiņas \"%s\"?"
 
 #: ../src/font.c:44
 msgid "Font"
@@ -173,7 +168,7 @@ msgstr "Kodē_jums:"
 #: ../src/selector.c:192
 #, c-format
 msgid "'%s' is not supported"
-msgstr "“%s” netiek atbalstīts"
+msgstr "'%s' netiek atbalstīts"
 
 #: ../src/selector.c:253
 msgid "Auto-Detect"
@@ -189,12 +184,12 @@ msgstr "Saglabāt kā"
 
 #: ../src/selector.c:329
 msgid "C_haracter Coding:"
-msgstr "_Rakstzīmju kodējums:"
+msgstr "Sim_bola kodējums:"
 
 #: ../src/selector.c:400
 #, c-format
 msgid "'%s' already exists. Overwrite?"
-msgstr "“%s” jau eksistē. Vai pārrakstīt?"
+msgstr "'%s' jau eksistē. Vai pārrakstīt?"
 
 #: ../src/file.c:55
 msgid "Untitled"
@@ -203,15 +198,15 @@ msgstr "Nenosaukts"
 #: ../src/file.c:212
 #, c-format
 msgid "Can't convert codeset to '%s'"
-msgstr "Nevar pārvērst kodējumu uz “%s”"
+msgstr "Nevar pārvērst kodējumu uz '%s'"
 
 #: ../src/file.c:225
 msgid "Can't open file to write"
-msgstr "Nevar atvērt datni rakstīšanai"
+msgstr "Nevar atvērt failu rakstīšanai"
 
 #: ../src/file.c:230
 msgid "Can't write file"
-msgstr "Nevar rakstīt datni"
+msgstr "Nevar rakstīt failu"
 
 #: ../src/search.c:140
 msgid "Search string not found"
@@ -219,46 +214,46 @@ msgstr "Meklējamā virkne netika atrasta"
 
 #: ../src/search.c:193
 msgid "Replace?"
-msgstr "Aizvietot?"
+msgstr "Aizstāt?"
 
 #: ../src/search.c:260
 #, c-format
 msgid "%d strings replaced"
-msgstr "%d virknes aizvietotas"
+msgstr "%d virknes aizstātas"
 
 #: ../src/search.c:306
 msgid "Replace"
-msgstr "Aizvietot"
+msgstr "Aizstāt"
 
 #: ../src/search.c:313
 msgid "Find"
-msgstr "Meklēt"
+msgstr "Atrast"
 
 #: ../src/search.c:326
 msgid "Fi_nd what:"
-msgstr "Ko _meklēt:"
+msgstr "At_rast ko:"
 
-#: ../src/search.c:342
+#: ../src/search.c:345
 msgid "Re_place with:"
-msgstr "Aizvietot a_r:"
+msgstr "Aizstāt a_r:"
 
-#: ../src/search.c:356
+#: ../src/search.c:359
 msgid "_Match case"
-msgstr "_Reģistrjutīgs"
+msgstr "_Reģistra jūtīgs"
 
-#: ../src/search.c:361
+#: ../src/search.c:364
 msgid "Replace _all at once"
-msgstr "Aizvietot _visu vienlaicīgi"
+msgstr "Aizstāt _visu vienlaicīgi"
 
-#: ../src/search.c:412
+#: ../src/search.c:415
 msgid "Jump To"
 msgstr "Pāriet uz"
 
-#: ../src/search.c:418
+#: ../src/search.c:421
 msgid "_Jump"
 msgstr "_Pāriet"
 
-#: ../src/search.c:425
+#: ../src/search.c:428
 msgid "_Line number:"
 msgstr "_Rindas numurs:"
 
@@ -268,23 +263,23 @@ msgstr "Autori"
 
 #: ../src/about.c:137
 msgid "Written by"
-msgstr "Uzrakstījuši"
+msgstr "Rakstījis"
 
 #: ../src/about.c:140
 msgid "Documented by"
-msgstr "Dokumentējuši"
+msgstr "Dokumentējis"
 
 #: ../src/about.c:146
 msgid "Translated by"
-msgstr "Tulkojuši"
+msgstr "Tulkojis"
 
 #: ../src/about.c:197
 msgid "C_redits"
-msgstr "_Veidotāji"
+msgstr "A_utori"
 
 #: ../src/about.c:199
 msgid "_Credits"
-msgstr "_Veidotāji"
+msgstr "_Autori"
 
 #: ../src/about.c:209
 #, c-format
@@ -301,4 +296,4 @@ msgstr "Drukas priekšskatījums"
 
 #: ../data/leafpad.desktop.in.h:1
 msgid "Simple text editor"
-msgstr "Vienkāršs teksta redaktors"
+msgstr "Vienkāršā teksta redaktors"
