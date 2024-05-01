@@ -221,7 +221,7 @@ static void cb_select_charset(GtkOptionMenu *option_menu, FileInfo *selected_fi)
 	index_history = gtk_option_menu_get_history(option_menu);
 	if (!charset_menu_init_flag) {
 		ctable = get_charset_table();
-		if (index_history < ctable->num + mode) {
+		if ((gint)index_history < ctable->num + mode) {
 			if (selected_fi->charset)
 				g_free(selected_fi->charset);
 			if (index_history == 0 && mode == OPEN)

@@ -77,7 +77,7 @@ static void dnd_open_first_file(gchar *filename)
 	else {
 		g_free(pub->fi);
 		pub->fi = fi;
-		undo_clear_all(pub->mw->buffer);
+		undo_clear_all();
 		set_main_window_title();
 //		undo_init(sd->mainwin->textview, sd->mainwin->textbuffer, sd->mainwin->menubar);
 	}
@@ -87,6 +87,9 @@ static void dnd_drag_data_recieved_handler(GtkWidget *widget,
 	GdkDragContext *context, gint x, gint y,
 	GtkSelectionData *selection_data, guint info, guint time)
 {
+	(void)x;
+	(void)y;
+	(void)time;
 	static gboolean flag_called_once = FALSE;
 	gchar **files;
 	gchar *filename;
@@ -185,6 +188,10 @@ DV(g_print(">%s\n", comline));
 static gboolean dnd_drag_motion_handler(GtkWidget *widget,
 	GdkDragContext *context, gint x, gint y, guint time)
 {
+	(void)widget;
+	(void)x;
+	(void)y;
+	(void)time;
 	GList *targets;
 	gchar *name;
 	gboolean flag = FALSE;

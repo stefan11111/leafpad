@@ -83,7 +83,7 @@ void on_file_open(void)
 		else {
 			g_free(pub->fi);
 			pub->fi = fi;
-			undo_clear_all(pub->mw->buffer);
+			undo_clear_all();
 //			set_main_window_title();
 			force_call_cb_modified_changed(pub->mw->view);
 //			undo_init(sd->mainwin->textview, sd->mainwin->textbuffer, sd->mainwin->menubar);
@@ -119,7 +119,7 @@ gint on_file_save_as(void)
 	}
 	g_free(pub->fi);
 	pub->fi = fi;
-	undo_clear_all(pub->mw->buffer);
+	undo_clear_all();
 //	set_main_window_title();
 	force_call_cb_modified_changed(pub->mw->view);
 //	undo_init(sd->mainwin->textview, sd->mainwin->textbuffer, sd->mainwin->menubar);
@@ -160,7 +160,7 @@ void on_file_close(void)
 		pub->fi->charset = NULL;
 		pub->fi->charset_flag = FALSE;
 		pub->fi->lineend = LF;
-		undo_clear_all(pub->mw->buffer);
+		undo_clear_all();
 //		set_main_window_title();
 		force_call_cb_modified_changed(pub->mw->view);
 		force_unblock_cb_modified_changed(pub->mw->view);

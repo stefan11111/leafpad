@@ -29,7 +29,7 @@ static GtkWidget *menu_item_delete;
 static GtkItemFactoryEntry menu_items[] =
 {
 	{ N_("/_File"), NULL,
-		NULL, 0, "<Branch>" },
+		NULL, 0, "<Branch>", NULL },
 	{ N_("/File/_New"), "<control>N",
 		G_CALLBACK(on_file_new), 0, "<StockItem>", GTK_STOCK_NEW },
 	{ N_("/File/_Open..."), "<control>O",
@@ -39,7 +39,7 @@ static GtkItemFactoryEntry menu_items[] =
 	{ N_("/File/Save _As..."), "<shift><control>S",
 		G_CALLBACK(on_file_save_as), 0, "<StockItem>", GTK_STOCK_SAVE_AS },
 	{ "/File/---", NULL,
-		NULL, 0, "<Separator>" },
+		NULL, 0, "<Separator>", NULL },
 #ifdef ENABLE_PRINT
 #	if GTK_CHECK_VERSION(2, 10, 0)
 	{ N_("/File/Print Pre_view"), "<shift><control>P",
@@ -49,19 +49,19 @@ static GtkItemFactoryEntry menu_items[] =
 		G_CALLBACK(on_file_print), 0, "<StockItem>", GTK_STOCK_PRINT },
 #	if GTK_CHECK_VERSION(2, 10, 0)
 	{ "/File/---", NULL,
-		NULL, 0, "<Separator>" },
+		NULL, 0, "<Separator>", NULL },
 #	endif
 #endif
 	{ N_("/File/_Quit"), "<control>Q",
 		G_CALLBACK(on_file_quit), 0, "<StockItem>", GTK_STOCK_QUIT },
 	{ N_("/_Edit"),	 NULL,
-		NULL, 0, "<Branch>" },
+		NULL, 0, "<Branch>", NULL },
 	{ N_("/Edit/_Undo"), "<control>Z",
 		G_CALLBACK(on_edit_undo), 0, "<StockItem>", GTK_STOCK_UNDO },
 	{ N_("/Edit/_Redo"), "<shift><control>Z",
 		G_CALLBACK(on_edit_redo), 0, "<StockItem>", GTK_STOCK_REDO },
 	{ "/Edit/---", NULL,
-		NULL, 0, "<Separator>" },
+		NULL, 0, "<Separator>", NULL },
 	{ N_("/Edit/Cu_t"), "<control>X",
 		G_CALLBACK(on_edit_cut), 0, "<StockItem>", GTK_STOCK_CUT },
 	{ N_("/Edit/_Copy"), "<control>C",
@@ -71,37 +71,37 @@ static GtkItemFactoryEntry menu_items[] =
 	{ N_("/Edit/_Delete"), NULL,
 		G_CALLBACK(on_edit_delete), 0, "<StockItem>", GTK_STOCK_DELETE },
 	{ "/Edit/---", NULL,
-		NULL, 0, "<Separator>" },
+		NULL, 0, "<Separator>", NULL },
 	{ N_("/Edit/Select _All"), "<control>A",
-		G_CALLBACK(on_edit_select_all), 0 },
+		G_CALLBACK(on_edit_select_all), 0, NULL, NULL },
 	{ N_("/_Search"),	 NULL,
-		NULL, 0, "<Branch>" },
+		NULL, 0, "<Branch>", NULL },
 	{ N_("/Search/_Find..."), "<control>F",
 		G_CALLBACK(on_search_find), 0, "<StockItem>", GTK_STOCK_FIND },
 	{ N_("/Search/Find _Next"), "<control>G",
-		G_CALLBACK(on_search_find_next), 0 },
+		G_CALLBACK(on_search_find_next), 0, NULL, NULL },
 	{ N_("/Search/Find _Previous"), "<shift><control>G",
-		G_CALLBACK(on_search_find_previous), 0 },
+		G_CALLBACK(on_search_find_previous), 0, NULL, NULL },
 	{ N_("/Search/_Replace..."), "<control>H",
 		G_CALLBACK(on_search_replace), 0, "<StockItem>", GTK_STOCK_FIND_AND_REPLACE },
 	{ "/Search/---", NULL,
-		NULL, 0, "<Separator>" },
+		NULL, 0, "<Separator>", NULL },
 	{ N_("/Search/_Jump To..."), "<control>J",
 		G_CALLBACK(on_search_jump_to), 0, "<StockItem>", GTK_STOCK_JUMP_TO },
 	{ N_("/_Options"), NULL,
-		NULL, 0, "<Branch>" },
+		NULL, 0, "<Branch>", NULL },
 	{ N_("/Options/_Font..."), NULL,
 		G_CALLBACK(on_option_font), 0, "<StockItem>", GTK_STOCK_SELECT_FONT },
 	{ N_("/Options/_Word Wrap"), NULL,
-		G_CALLBACK(on_option_word_wrap), 0, "<CheckItem>" },
+		G_CALLBACK(on_option_word_wrap), 0, "<CheckItem>", NULL },
 	{ N_("/Options/_Line Numbers"), NULL,
-		G_CALLBACK(on_option_line_numbers), 0, "<CheckItem>" },
+		G_CALLBACK(on_option_line_numbers), 0, "<CheckItem>", NULL },
 	{ "/Options/---", NULL,
-		NULL, 0, "<Separator>" },
+		NULL, 0, "<Separator>", NULL },
 	{ N_("/Options/_Auto Indent"), NULL,
-		G_CALLBACK(on_option_auto_indent), 0, "<CheckItem>" },
+		G_CALLBACK(on_option_auto_indent), 0, "<CheckItem>" , NULL},
 	{ N_("/_Help"), NULL,
-		NULL, 0, "<Branch>" },
+		NULL, 0, "<Branch>", NULL },
 	{ N_("/Help/_About"), NULL,
 #if GTK_CHECK_VERSION(2, 6, 0)
 		G_CALLBACK(on_help_about), 0, "<StockItem>", GTK_STOCK_ABOUT },
@@ -114,6 +114,8 @@ static gint nmenu_items = sizeof(menu_items) / sizeof(GtkItemFactoryEntry);
 
 static gchar *menu_translate(const gchar *path, gpointer data)
 {
+	(void)data;
+
 	gchar *str;
 	
 	str = (gchar *)_(path);

@@ -82,6 +82,8 @@ static void cb_begin_print(GtkPrintOperation *op,
 static void cb_draw_page(GtkPrintOperation *op,
 		GtkPrintContext *ctx, gint page_nr, gpointer data)
 {
+	(void)op;
+	(void)data;
 	cairo_t *cr;
 	PangoLayoutLine *line;
 	gint n_line, i, j = 0;
@@ -125,6 +127,9 @@ static void cb_draw_page(GtkPrintOperation *op,
 static void cb_end_print(GtkPrintOperation *op,
 		GtkPrintContext *ctx, gpointer data)
 {
+	(void)op;
+	(void)ctx;
+	(void)data;
 	g_object_unref(layout);
 }
 
@@ -190,6 +195,7 @@ void create_gtkprint_session(GtkTextView *text_view, const gchar *title)
 	case GTK_PRINT_OPERATION_RESULT_ERROR:
 		create_error_dialog(text_view, err->message);
 		g_error_free(err);
+	/* FALLTHROUGH */
 	case GTK_PRINT_OPERATION_RESULT_APPLY:
 		if (settings)
 			g_object_unref(settings);

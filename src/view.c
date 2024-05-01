@@ -175,6 +175,7 @@ static gboolean cb_key_press_event(GtkWidget *view, GdkEventKey *event)
 			indent_toggle_tab_width(view);
 			return TRUE;
 		}
+	/* FALLTHROUGH */
 	case GDK_ISO_Left_Tab:
 		if (event->state & GDK_SHIFT_MASK)
 			indent_multi_line_unindent(GTK_TEXT_VIEW(view)->buffer);
@@ -226,7 +227,7 @@ static void cb_modified_changed(GtkTextBuffer *buffer, GtkWidget *view)
 		title = g_strconcat("*", filename, NULL);
 	else {
 		title = g_strdup(filename);
-		undo_reset_modified_step(buffer);
+		undo_reset_modified_step();
 	}
 	g_free(filename);
 	gtk_window_set_title(GTK_WINDOW(gtk_widget_get_toplevel(view)), title);

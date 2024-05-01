@@ -24,6 +24,7 @@
 
 static void cb_key_release_event(GtkWidget *view, GdkEventKey *event)
 {
+	(void)view;
 //g_print("key-release-event: 0x%X\n", event->keyval);
 	switch (event->keyval) {
 	case GDK_x:
@@ -34,6 +35,7 @@ static void cb_key_release_event(GtkWidget *view, GdkEventKey *event)
 
 static void cb_key_press_event(GtkWidget *view, GdkEventKey *event)
 {
+	(void)view;
 //g_print("key-release-event: 0x%X\n", event->keyval);
 	if (event->keyval < 0x1000 || event->keyval == GDK_Escape) {
 		switch (event->keyval) {
