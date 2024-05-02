@@ -54,14 +54,11 @@ void scroll_to_cursor(GtkTextBuffer *buffer, gdouble within_margin)
 
 gint check_text_modification(void)
 {
-	gchar *basename, *str;
-	gint res;
-	
 	if (gtk_text_buffer_get_modified(pub->mw->buffer)) {
-		basename = get_file_basename(pub->fi->filename, FALSE);
-		str = g_strdup_printf(_("Save changes to '%s'?"), basename);
+		gchar *basename = get_file_basename(pub->fi->filename, FALSE);
+		gchar *str = g_strdup_printf(_("Save changes to '%s'?"), basename);
 		g_free(basename);
-		res = run_dialog_message_question(pub->mw->window, str);
+		gint res = run_dialog_message_question(pub->mw->window, str);
 		g_free(str);
 		switch (res) {
 		case GTK_RESPONSE_NO:
@@ -89,11 +86,10 @@ static gint check_preedit(GtkWidget *view)
 static gboolean check_selection_bound(GtkTextBuffer *buffer)
 {
 	GtkTextIter start, end;
-	gchar *str, *p;
 	
 	if (gtk_text_buffer_get_selection_bounds(buffer, &start, &end)) {
-		str = gtk_text_iter_get_text(&start, &end);
-		p = strchr(str, '\n');
+		gchar *str = gtk_text_iter_get_text(&start, &end);
+		gchar *p = strchr(str, '\n');
 		g_free(str);
 		if (p)
 			return TRUE;

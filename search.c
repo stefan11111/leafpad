@@ -297,7 +297,7 @@ gint run_dialog_search(GtkWidget *textview, gint mode)
 {
 	GtkWidget *dialog;
 	GtkWidget *table;
-	GtkWidget *label_find, *label_replace;
+	GtkWidget *label_find;
 	GtkWidget *entry_find, *entry_replace = NULL;
 	GtkWidget *check_case, *check_all;
 	gint res;
@@ -342,7 +342,7 @@ gint run_dialog_search(GtkWidget *textview, gint mode)
 			GTK_RESPONSE_OK, TRUE);
 	 }
 	if (mode) {
-		label_replace = gtk_label_new_with_mnemonic(_("Re_place with:"));
+		GtkWidget *label_replace = gtk_label_new_with_mnemonic(_("Re_place with:"));
 		 gtk_misc_set_alignment(GTK_MISC(label_replace), 0, 0.5);
 		 gtk_table_attach_defaults(GTK_TABLE(table), label_replace, 0, 1, 1, 2);
 		entry_replace = gtk_entry_new();

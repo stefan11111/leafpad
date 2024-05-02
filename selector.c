@@ -52,13 +52,12 @@ static GtkWidget *create_lineend_menu(FileInfo *selected_fi)
 {
 	GtkWidget *option_menu;
 	GtkWidget *menu;
-	GtkWidget *menu_item;
 	gint i;
 	
 	option_menu = gtk_option_menu_new();
 	menu = gtk_menu_new();
 	for (i = 0; i <= 2; i++) {
-		menu_item = gtk_menu_item_new_with_label(lineend_str[i]);
+		GtkWidget *menu_item = gtk_menu_item_new_with_label(lineend_str[i]);
 		gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
 		gtk_widget_show(menu_item); // <- required for width adjustment
 	}
@@ -151,7 +150,6 @@ static gboolean get_manual_charset(GtkOptionMenu *option_menu, FileInfo *selecte
 	GtkWidget *label;
 	GtkWidget *entry;
 	GError *err = NULL;
-	gchar *str;
 	
 	dialog = gtk_dialog_new_with_buttons(other_codeset_title,
 			GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(option_menu))),
@@ -189,6 +187,7 @@ static gboolean get_manual_charset(GtkOptionMenu *option_menu, FileInfo *selecte
 		if (err) {
 			g_error_free(err);
 			gtk_widget_hide(dialog);
+			gchar *str;
 			str = g_strdup_printf(_("'%s' is not supported"), gtk_entry_get_text(GTK_ENTRY(entry)));
 			run_dialog_message(gtk_widget_get_toplevel(GTK_WIDGET(option_menu)),
 				GTK_MESSAGE_ERROR, str);
@@ -214,13 +213,12 @@ gboolean charset_menu_init_flag;
 
 static void cb_select_charset(GtkOptionMenu *option_menu, FileInfo *selected_fi)
 {
-	CharsetTable *ctable;
 	static guint index_history = 0, prev_history;
 	
 	prev_history = index_history;
 	index_history = gtk_option_menu_get_history(option_menu);
 	if (!charset_menu_init_flag) {
-		ctable = get_charset_table();
+		CharsetTable *ctable = get_charset_table();
 		if ((gint)index_history < ctable->num + mode) {
 			if (selected_fi->charset)
 				g_free(selected_fi->charset);

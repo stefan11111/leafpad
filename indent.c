@@ -184,7 +184,6 @@ void indent_multi_line_unindent(GtkTextBuffer *buffer)
 	GtkTextIter start_iter, end_iter, iter;
 	gint start_line, end_line, i, len;
 	gboolean pos;
-	gchar *ind;
 	
 	gtk_text_buffer_get_selection_bounds(buffer, &start_iter, &end_iter);
 	start_line = gtk_text_iter_get_line(&start_iter);
@@ -193,7 +192,7 @@ void indent_multi_line_unindent(GtkTextBuffer *buffer)
 	pos = gtk_text_iter_equal(&iter, &start_iter);
 	i = start_line;
 	do {
-		ind = compute_indentation(buffer, NULL, i);
+		gchar *ind = compute_indentation(buffer, NULL, i);
 		if (ind && strlen(ind)) {
 			len = compute_indent_offset_length(ind);
 			gtk_text_buffer_get_iter_at_line(buffer, &start_iter, i);

@@ -302,12 +302,11 @@ static void undo_flush_temporal_buffer(void)
 gboolean undo_undo_real(GtkTextBuffer *buffer)
 {
 	GtkTextIter start_iter, end_iter;
-	UndoInfo *ui;
 	
 	undo_flush_temporal_buffer();
 	if (g_list_length(undo_list)) {
 //		undo_block_signal(buffer);
-		ui = g_list_last(undo_list)->data;
+		UndoInfo *ui = g_list_last(undo_list)->data;
 		gtk_text_buffer_get_iter_at_offset(buffer, &start_iter, ui->start);
 		switch (ui->command) {
 		case INS:
@@ -340,11 +339,10 @@ g_list_length(undo_list), g_list_length(redo_list)));
 gboolean undo_redo_real(GtkTextBuffer *buffer)
 {
 	GtkTextIter start_iter, end_iter;
-	UndoInfo *ri;
 	
 	if (g_list_length(redo_list)) {
 //		undo_block_signal(buffer);
-		ri = g_list_last(redo_list)->data;
+		UndoInfo *ri = g_list_last(redo_list)->data;
 		gtk_text_buffer_get_iter_at_offset(buffer, &start_iter, ri->start);
 		switch (ri->command) {
 		case INS:

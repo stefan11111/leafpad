@@ -54,14 +54,13 @@ void on_file_open(void)
 #ifdef ENABLE_CSDI
 { // too slow...
 	FileInfo *fi;
-	gchar *comline;
 	gchar *option = NULL;
 	
 	fi = get_fileinfo_from_selector(pub->fi, OPEN);
 	if (fi) {
 		save_config_file();
 		option = g_strdup_printf("--codeset=%s ", fi->charset);
-		comline = g_strdup_printf("%s %s%s", PACKAGE,
+		gchar *comline = g_strdup_printf("%s %s%s", PACKAGE,
 			fi->charset ? option : "",
 			fi->filename);
 		g_spawn_command_line_async(comline, NULL);
@@ -219,11 +218,10 @@ void on_edit_select_all(void)
 
 static void activate_quick_find(void)
 {
-	GtkItemFactory *ifactory;
 	static gboolean flag = FALSE;
 	
 	if (!flag) {
-		ifactory = gtk_item_factory_from_widget(pub->mw->menubar);
+		GtkItemFactory *ifactory = gtk_item_factory_from_widget(pub->mw->menubar);
 		gtk_widget_set_sensitive(
 			gtk_item_factory_get_widget(ifactory, "/Search/Find Next"),
 			TRUE);

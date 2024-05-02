@@ -96,11 +96,10 @@ static const gchar *encoding_table[][ENCODING_MAX_ITEM_NUM] =
 guint get_encoding_code(void)
 {
 	static guint code = END_CODE;
-	const gchar *env;
 	guint i, j = 1;
 	
 	if (code == END_CODE) {
-		env = g_getenv("LC_ALL");
+		const gchar *env = g_getenv("LC_ALL");
 		if (!env)
 			env = g_getenv("LANG");
 		if (env && strlen(env) >= 2)

@@ -193,11 +193,11 @@ static gboolean dnd_drag_motion_handler(GtkWidget *widget,
 	(void)y;
 	(void)time;
 	GList *targets;
-	gchar *name;
 	gboolean flag = FALSE;
 	
 	targets = context->targets;
 	while (targets) {
+		gchar *name;
 		name = gdk_atom_name(targets->data);
 DV(g_print("%s\n", name));
 		if (g_ascii_strcasecmp(name, "text/uri-list") == 0)
