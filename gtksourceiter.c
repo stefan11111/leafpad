@@ -602,7 +602,7 @@ gtk_source_iter_forward_search (const GtkTextIter   *iter,
 		if (lines_match (&search, (const gchar**)lines,
 				 visible_only, slice, &match, &end))
 		{
-			if (limit == NULL || (gtk_text_iter_compare (&end, limit) < 0))
+			if (limit == NULL || gtk_text_iter_compare (&end, limit) < 0)
 			{
 				retval = TRUE;
 
@@ -704,8 +704,7 @@ gtk_source_iter_backward_search (const GtkTextIter   *iter,
 		if (backward_lines_match (&search, (const gchar**)lines,
 					  visible_only, slice, &match, &end))
 		{
-			if (limit == NULL || (limit &&
-					      gtk_text_iter_compare (&end, limit) > 0))
+			if (limit == NULL || gtk_text_iter_compare (&end, limit) > 0)
 			{
 				retval = TRUE;
 

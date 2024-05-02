@@ -299,7 +299,7 @@ gint run_dialog_search(GtkWidget *textview, gint mode)
 	GtkWidget *table;
 	GtkWidget *label_find;
 	GtkWidget *entry_find, *entry_replace = NULL;
-	GtkWidget *check_case, *check_all;
+	GtkWidget *check_case;
 	gint res;
 	
 	if (mode)
@@ -361,7 +361,7 @@ gint run_dialog_search(GtkWidget *textview, gint mode)
 	 g_signal_connect(GTK_OBJECT(check_case), "toggled", G_CALLBACK(toggle_check_case), NULL);
 	 gtk_table_attach_defaults (GTK_TABLE(table), check_case, 0, 2, 1 + mode, 2 + mode);
 	if (mode) {
-	check_all = gtk_check_button_new_with_mnemonic(_("Replace _all at once"));
+	GtkWidget *check_all = gtk_check_button_new_with_mnemonic(_("Replace _all at once"));
 	 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_all), replace_all);
 	 g_signal_connect(GTK_OBJECT(check_all), "toggled", G_CALLBACK(toggle_check_all), NULL);
 	 gtk_table_attach_defaults(GTK_TABLE(table), check_all, 0, 2, 2 + mode, 3 + mode);
