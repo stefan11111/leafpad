@@ -97,9 +97,6 @@ static void dnd_drag_data_recieved_handler(GtkWidget *widget,
 	gint i = 0, j = 0;
 	gchar *filename_sh;
 	gchar **strs;
-#ifdef ENABLE_CSDI
-	j = 1;
-#endif
 DV(g_print("DND start!\n"));
 	
 #if GTK_CHECK_VERSION(2, 10, 0)

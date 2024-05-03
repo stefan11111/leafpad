@@ -51,25 +51,6 @@ void on_file_new(void)
 }
 
 void on_file_open(void)
-#ifdef ENABLE_CSDI
-{ // too slow...
-	FileInfo *fi;
-	gchar *option = NULL;
-	
-	fi = get_fileinfo_from_selector(pub->fi, OPEN);
-	if (fi) {
-		save_config_file();
-		option = g_strdup_printf("--codeset=%s ", fi->charset);
-		gchar *comline = g_strdup_printf("%s %s%s", PACKAGE,
-			fi->charset ? option : "",
-			fi->filename);
-		g_spawn_command_line_async(comline, NULL);
-		g_free(option);
-		g_free(comline);
-		g_free(fi);
-	}
-}
-#else
 {
 	FileInfo *fi;
 	
@@ -89,7 +70,6 @@ void on_file_open(void)
 		}
 	}
 }
-#endif
 
 gint on_file_save(void)
 {
