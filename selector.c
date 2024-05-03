@@ -20,10 +20,6 @@
 #include "leafpad.h"
 #include <string.h>
 
-#ifndef ENABLE_CHOOSER
-#	define gtk_dialog_set_has_separator(Dialog, Setting)
-#endif
-
 #define DEFAULT_ITEM_NUM 2
 
 static gint mode;
@@ -157,7 +153,6 @@ static gboolean get_manual_charset(GtkOptionMenu *option_menu, FileInfo *selecte
 			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 			GTK_STOCK_OK, GTK_RESPONSE_OK,
 			NULL);
-//	gtk_dialog_set_has_separator(GTK_DIALOG(dialog), FALSE);
 	gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 	gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_MOUSE);
 	
@@ -302,25 +297,12 @@ static GtkWidget *create_file_selector(FileInfo *selected_fi)
 	
 	title = mode ? _("Open") : _("Save As");
 	
-#if ENABLE_CHOOSER
-	selector = gtk_file_chooser_dialog_new(title, NULL,
-		mode ? GTK_FILE_CHOOSER_ACTION_OPEN : GTK_FILE_CHOOSER_ACTION_SAVE,
-		GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-		mode ? GTK_STOCK_OPEN : GTK_STOCK_SAVE, GTK_RESPONSE_OK,
-		NULL);
-	gtk_dialog_set_default_response(GTK_DIALOG(selector), GTK_RESPONSE_OK);
-#else
 	selector = gtk_file_selection_new(title);
-#endif
 	
 //	align = gtk_alignment_new(0.5, 0, 0, 0);
 	align = gtk_alignment_new(1, 0, 0, 0);
-#if ENABLE_CHOOSER
-	gtk_file_chooser_set_extra_widget(GTK_FILE_CHOOSER(selector), align);
-#else
 	gtk_box_pack_end(GTK_BOX(GTK_FILE_SELECTION(selector)->main_vbox),
 		align, FALSE, FALSE, 0);
-#endif
 	table = gtk_table_new(2, 2, FALSE);
 	gtk_container_add(GTK_CONTAINER(align), table);
 	option_menu_charset = create_charset_menu(selected_fi);
@@ -337,11 +319,7 @@ static GtkWidget *create_file_selector(FileInfo *selected_fi)
 	gtk_widget_show_all(align);
 	
 	if (selected_fi->filename)
-#if ENABLE_CHOOSER
-		gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(selector), selected_fi->filename);
-#else
 		gtk_file_selection_set_filename(GTK_FILE_SELECTION(selector), selected_fi->filename);
-#endif
 	
 	return selector;
 }
@@ -372,24 +350,15 @@ FileInfo *get_fileinfo_from_selector(FileInfo *fi, gint requested_mode)
 		if (res == GTK_RESPONSE_OK) {
 			if (selected_fi->filename)
 				g_free(selected_fi->filename);
-#if ENABLE_CHOOSER
-			selected_fi->filename =
-				gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(selector));
-#else
 			selected_fi->filename = g_strdup(
 				gtk_file_selection_get_filename(GTK_FILE_SELECTION(selector)));
-#endif
 			if (g_file_test(selected_fi->filename, G_FILE_TEST_IS_DIR)) {
 				len = strlen(selected_fi->filename);
 				if (len < 1 || selected_fi->filename[len - 1] != G_DIR_SEPARATOR)
 					str = g_strconcat(selected_fi->filename, G_DIR_SEPARATOR_S, NULL);
 				else
 					str = g_strdup(selected_fi->filename);
-#if ENABLE_CHOOSER
-				gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(selector), str);
-#else
 				gtk_file_selection_set_filename(GTK_FILE_SELECTION(selector), str);
-#endif
 				g_free(str);
 				continue;
 			}

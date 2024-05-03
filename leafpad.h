@@ -27,12 +27,6 @@
 #include <gtk/gtk.h>
 #include "i18n.h"
 
-#ifndef ENABLE_PRINT
-#	if GTK_CHECK_VERSION(2, 10, 0)
-#		define ENABLE_PRINT
-#	endif
-#endif
-
 #include "window.h"
 #include "menu.h"
 #include "callback.h"
@@ -50,14 +44,6 @@
 #include "about.h"
 #include "dnd.h"
 #include "utils.h"
-#include "emacs.h"
-#ifdef ENABLE_PRINT
-#	if GTK_CHECK_VERSION(2, 10, 0)
-#		include "gtkprint.h"
-#	else
-#		include "gnomeprint.h"
-#	endif
-#endif
 
 typedef struct {
 	FileInfo *fi;

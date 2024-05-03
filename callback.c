@@ -124,26 +124,6 @@ gint on_file_save_as(void)
 //	undo_init(sd->mainwin->textview, sd->mainwin->textbuffer, sd->mainwin->menubar);
 	return 0;
 }
-#ifdef ENABLE_PRINT
-#	if GTK_CHECK_VERSION(2, 10, 0)
-void on_file_print_preview(void)
-{
-	create_gtkprint_preview_session(GTK_TEXT_VIEW(pub->mw->view),
-		get_file_basename(pub->fi->filename, FALSE));
-}
-
-void on_file_print(void)
-{
-	create_gtkprint_session(GTK_TEXT_VIEW(pub->mw->view),
-		get_file_basename(pub->fi->filename, FALSE));
-}
-#	else
-void on_file_print(void)
-{
-	create_gnomeprint_session();
-}
-#	endif
-#endif
 void on_file_close(void)
 {
 	if (!check_text_modification()) {
@@ -347,8 +327,7 @@ void on_help_about(void)
 	const gchar *documenters[] = {
 		NULL
 	};
-	GdkPixbuf *logo = gdk_pixbuf_new_from_file(
-		ICONDIR G_DIR_SEPARATOR_S PACKAGE ".png", NULL);
+
 	about = create_about_dialog(
 		PACKAGE_NAME,
 		PACKAGE_VERSION,
@@ -357,9 +336,8 @@ void on_help_about(void)
 		authors,
 		documenters,
 		translator_credits,
-		logo);
-	if (logo)
-		g_object_unref(logo);
+		NULL);
+
 	gtk_window_set_transient_for(GTK_WINDOW(about),
 		GTK_WINDOW(pub->mw->window));
 	gtk_window_set_destroy_with_parent(GTK_WINDOW(about), TRUE);

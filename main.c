@@ -281,10 +281,6 @@ gint main(gint argc, gchar **argv)
 	GtkItemFactory *ifactory;
 	gchar *stdin_data = NULL;
 	
-	bindtextdomain(PACKAGE, LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE, "UTF-8");
-	textdomain(PACKAGE);
-	
 	pub = g_malloc(sizeof(PublicData));
 	pub->fi = g_malloc(sizeof(FileInfo));
 	pub->fi->filename     = NULL;
@@ -332,10 +328,6 @@ gint main(gint argc, gchar **argv)
 	gtk_widget_show_all(pub->mw->window);
 	g_free(conf->fontname);
 	g_free(conf);
-	
-#ifdef ENABLE_EMACS
-	check_emacs_key_theme(GTK_WINDOW(pub->mw->window), ifactory);
-#endif
 	
 	hlight_init(pub->mw->buffer);
 	undo_init(pub->mw->view,
