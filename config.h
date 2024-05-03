@@ -1,3 +1,6 @@
+/* Toggle print support */
+/*#define ENABLE_PRINT*/
+
 /* Name of package */
 #define PACKAGE "leafpad"
 

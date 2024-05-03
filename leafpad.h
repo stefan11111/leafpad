@@ -45,6 +45,10 @@
 #include "dnd.h"
 #include "utils.h"
 
+#ifdef ENABLE_PRINT
+#	include "gtkprint.h"
+#endif
+
 typedef struct {
 	FileInfo *fi;
 	MainWin *mw;
